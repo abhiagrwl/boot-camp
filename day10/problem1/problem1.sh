@@ -22,19 +22,19 @@ do
 
 done
 
-echo ${array[@]}
+echo "saving dict into array "${array[@]}
 
 sort () {
-    for ((i=0; i <= $((${#array[@]} - 2)); ++i))
+    for (( i=0; i <= $((${#array[@]} - 2)); ++i ))
     do
-        for ((j=((i + 1)); j <= ((${#array[@]} - 1)); ++j))
+        for (( j=((i + 1)); j <= ((${#array[@]} - 1)); ++j ))
         do
             if [[ ${array[i]} -gt ${array[j]} ]]
             then
                 # echo $i $j ${array[i]} ${array[j]}
                 tmp=${array[i]}
-                arr[i]=${array[j]}
-                arr[j]=$tmp
+                array[i]=${array[j]}
+                array[j]=$tmp
             fi
         done
     done
@@ -42,7 +42,18 @@ sort () {
 
 sort "${array[@]}"
 
-echo ${arr[*]}
+echo "In ascending order "${array[*]}
 
 
 echo ${array[@]}
+
+
+declare -a desc
+counter=0
+
+for (( i=${#array[@]}-1 ; i>=0 ; i-- )) ; do
+	desc[((counter++))]="${array[i]}"
+done
+
+
+echo "In Descending order "${desc[*]}

@@ -99,7 +99,7 @@ sort () {
     done
 }
 
-sort "${ar[@]}"
+sort "${arr[@]}"
 
 echo ${arr[*]}
 echo ${arr[1]}
