@@ -15,7 +15,7 @@ read password
 
 user="^[A-Z][a-z]{2,}"
 mob_no="^[0-9]{2}[[:space:]][0-9]{10}$"
-pass="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+#pass="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
 
 ##Verify for user name
 if  [[ $first =~ $user ]] && [[ $last =~ $user ]] ;
@@ -35,9 +35,17 @@ fi
 
 
 ##verify for password
-if  [[ $password =~ $pass ]];
+
+
+pat1="[A-Z]+"
+pat2="[a-z]+"
+pat3="[0-9]+"
+pat4="[#!@$%^&*]+"
+len="${#password}"
+
+if  [[ $password =~ $pat1 ]] && [[ $password =~ $pat2 ]] && [[ $password =~ $pat3 ]] && [[ $password =~ $pat4 ]] && [[ $len -ge 8 ]];
 then
-	echo password no Validated;
+	echo Password is  Validated;
 else
 	echo password no is not valid;
 fi
