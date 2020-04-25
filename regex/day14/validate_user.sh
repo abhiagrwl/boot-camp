@@ -40,7 +40,7 @@ fi
 pat1="[A-Z]+"
 pat2="[a-z]+"
 pat3="[0-9]+"
-pat4="[#!@$%^&*]+"
+pat4="[#!@$%^&*]?"
 len="${#password}"
 
 if  [[ $password =~ $pat1 ]] && [[ $password =~ $pat2 ]] && [[ $password =~ $pat3 ]] && [[ $password =~ $pat4 ]] && [[ $len -ge 8 ]];
