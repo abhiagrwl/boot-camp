@@ -1,7 +1,0 @@
-apple
-cat
-banana
-mango
-strawberry
-ball
-
